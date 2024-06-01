@@ -1,0 +1,6 @@
+model_path:
+  small: "./mistral-7b-instruct-v0.1.Q4_K_M.gguf"
+
+model_type: "mistral"
+
+embeddings_path: "BAAI/bge-large-en-v1.5"
