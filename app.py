@@ -1,6 +1,11 @@
 import streamlit as st
 from llm_chain import load_normal_chain
 from langchain.memory import StreamlitChatMessageHistory
+import yaml
+import os
+with open("config.yaml","r") as f:
+    config = yaml.safe_load(f)
+
 
 #for llm chain
 def load_chain(chat_history):
@@ -18,10 +23,15 @@ def set_send_input():
 def main():
     st.title("VAGBHAT AI")
     chat_container = st.container()
+    st.sidebar.title("Chat Sessions")
+    chat_sessions = ["new_session"] + os.listdir(config["chat_history_path"])
 
+    #session state definitions
     if "send_input" not in st.session_state:
         st.session_state.send_input = False
         st.session_state.user_question = ""
+
+    st.sidebar.selectbox("Select a chat session", chat_sessions, key="session_key")
 
     chat_history = StreamlitChatMessageHistory(key="history")
     llm_chain = load_chain(chat_history)
