@@ -1,8 +1,9 @@
 model_path:
-  small: "./mistral-7b-instruct-v0.1.Q4_K_M.gguf"
+  small: "./models/mistral-7b-instruct-v0.1.Q5_0.gguf "
+
 
 model_type: "mistral"
 
 embeddings_path: "BAAI/bge-large-en-v1.5"
 
-model_config: {'max_new-tokens': 512, 'tempreture': 0, 'context_length': 4096, 'gpu_layer': 0}
+model_config: {'max_new_tokens': 512, 'temperature': 0, 'context_length': 4096, 'gpu_layers': 0}
